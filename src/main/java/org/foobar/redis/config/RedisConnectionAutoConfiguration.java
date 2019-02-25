@@ -33,15 +33,17 @@ public class RedisConnectionAutoConfiguration {
 
     private RedisProperties redisProperties;
 
-    public RedisConnectionAutoConfiguration(@Autowired RedisProperties redisProperties) {
-        this.redisProperties = redisProperties;
-    }
-
-    @Value("${spring.redis.sentinel.enabled:false}")
     private boolean sentinelEnabled;
 
-    @Value("${spring.redis.cluster.enabled:false}")
     private boolean clusterEnabled;
+
+    public RedisConnectionAutoConfiguration(@Autowired RedisProperties redisProperties,
+                                            @Value("${spring.redis.sentinel.enabled}") boolean sentinelEnabled,
+                                            @Value("${spring.redis.cluster.enabled}") boolean clusterEnabled) {
+        this.redisProperties = redisProperties;
+        this.sentinelEnabled = sentinelEnabled;
+        this.clusterEnabled = clusterEnabled;
+    }
 
     @Bean
     @ConditionalOnMissingBean

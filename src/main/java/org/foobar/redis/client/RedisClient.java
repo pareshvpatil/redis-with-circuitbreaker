@@ -36,11 +36,6 @@ public class RedisClient {
         this.hashOperations = redisTemplate.opsForHash();
     }
 
-    @PostConstruct
-    public void setUpHashOperations() {
-        hashOperations = redisTemplate.opsForHash();
-    }
-
     @HystrixCommand(
             commandKey = REDIS_SET_COMMAND,
             groupKey = REDIS_SET_COMMAND,
