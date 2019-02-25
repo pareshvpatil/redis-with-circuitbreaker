@@ -100,4 +100,3 @@ public class SessionServiceImpl implements SessionService {
 ```
 
 - A working sample is available on github [here](https://github.com)
-- Source Code for the artifact is available [here](https://github.com)
