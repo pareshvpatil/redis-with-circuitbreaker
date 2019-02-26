@@ -4,7 +4,7 @@
 
     <groupId>io.github.pareshvpatil</groupId>
     <artifactId>redis-with-circuitbreaker</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>Redis Client with Circuit-Breaker</name>
@@ -18,7 +18,7 @@
         <developerConnection>scm:git:git@github.com:pareshvpatil/pareshvpatil.git
         </developerConnection>
         <url>https://github.com/pareshvpatil/redis-with-circuitbreaker</url>
-        <tag>1.0.0</tag>
+        <tag>redis-with-circuitbreaker-1.0.0</tag>
     </scm>
 
     <properties>
