@@ -1,10 +1,9 @@
-package org.foobar.redis.config;
+package io.github.redis.config;
 
+import io.github.redis.helper.Constants;
 import mockit.Injectable;
-import mockit.Mocked;
 import mockit.Tested;
 import mockit.integration.junit4.JMockit;
-import org.foobar.redis.helper.Constants;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package org.foobar.redis.helper;
+package io.github.redis.helper;
 /*
  * created by pareshP on 20/02/19
  */

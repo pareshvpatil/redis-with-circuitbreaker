@@ -1,11 +1,11 @@
-package org.foobar.redis.config;
+package io.github.redis.config;
 /*
  * created by pareshP on 20/02/19
  */
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.foobar.redis.client.RedisClient;
-import org.foobar.redis.helper.Constants;
+import io.github.redis.client.RedisClient;
+import io.github.redis.helper.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;

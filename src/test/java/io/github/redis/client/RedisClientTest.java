@@ -1,4 +1,4 @@
-package org.foobar.redis.client;
+package io.github.redis.client;
 
 import mockit.Deencapsulation;
 import mockit.Injectable;

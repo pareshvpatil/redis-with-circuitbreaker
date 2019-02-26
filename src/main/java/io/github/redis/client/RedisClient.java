@@ -1,4 +1,4 @@
-package org.foobar.redis.client;
+package io.github.redis.client;
 /*
  * created by pareshP on 20/02/19
  */
@@ -11,12 +11,11 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.util.Collections;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import static org.foobar.redis.helper.Constants.*;
+import static io.github.redis.helper.Constants.*;
 
 @Component
 public class RedisClient {
