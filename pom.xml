@@ -15,7 +15,7 @@
 
     <scm>
         <connection>scm:git:git://github.com/pareshvpatil/redis-with-circuitbreaker.git</connection>
-        <developerConnection>scm:git:git@github.com:pareshvpatil/pareshvpatil.git
+        <developerConnection>scm:git:git@github.com:pareshvpatil/redis-with-circuitbreaker.git
         </developerConnection>
         <url>https://github.com/pareshvpatil/redis-with-circuitbreaker</url>
         <tag>redis-with-circuitbreaker-1.0.0</tag>
