@@ -13,6 +13,7 @@
         Spring boot Redis Client with monitored hystrix commands to enable pooling for individual
         redis commands and fallbacks handled for graceful responses
     </description>
+    <url>https://github.com/pareshvpatil/redis-with-circuitbreaker</url>
 
     <scm>
         <connection>scm:git:git://github.com/pareshvpatil/redis-with-circuitbreaker.git</connection>
@@ -32,6 +33,13 @@
             </roles>
         </developer>
     </developers>
+
+    <licenses>
+        <license>
+            <url>https://github.com/pareshvpatil/redis-with-circuitbreaker/blob/master/LICENCE.txt</url>
+            <name>MIT License</name>
+        </license>
+    </licenses>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
