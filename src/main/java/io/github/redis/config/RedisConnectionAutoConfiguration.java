@@ -26,6 +26,11 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPoolConfig;
 
+/**
+ * The type Redis connection auto configuration.
+ * This auto configuration class gets instantiated with the help of spring.factories file attached along with the artifact.
+ * This auto configuration works with {@link RedisProperties} which is included as a part of this artifact.
+ */
 @Configuration
 @ConditionalOnClass({ JedisConnection.class, RedisOperations.class, Jedis.class })
 @EnableConfigurationProperties(RedisProperties.class)
@@ -37,6 +42,13 @@ public class RedisConnectionAutoConfiguration {
 
     private boolean clusterEnabled;
 
+    /**
+     * Instantiates a new Redis connection auto configuration.
+     *
+     * @param redisProperties the redis properties
+     * @param sentinelEnabled the sentinel enabled
+     * @param clusterEnabled  the cluster enabled
+     */
     public RedisConnectionAutoConfiguration(@Autowired RedisProperties redisProperties,
                                             @Value("${spring.redis.sentinel.enabled}") boolean sentinelEnabled,
                                             @Value("${spring.redis.cluster.enabled}") boolean clusterEnabled) {
@@ -45,6 +57,11 @@ public class RedisConnectionAutoConfiguration {
         this.clusterEnabled = clusterEnabled;
     }
 
+    /**
+     * Redis connection factory redis connection factory.
+     *
+     * @return the redis connection factory
+     */
     @Bean
     @ConditionalOnMissingBean
     public RedisConnectionFactory redisConnectionFactory() {
@@ -108,6 +125,12 @@ public class RedisConnectionAutoConfiguration {
         return new JedisConnectionFactory(sentinelConfiguration, poolConfig);
     }
 
+    /**
+     * Redis template redis template.
+     *
+     * @param redisConnectionFactory the redis connection factory
+     * @return the redis template
+     */
     @Bean
     @ConditionalOnMissingBean
     @Qualifier("redisTemplate")
@@ -124,6 +147,12 @@ public class RedisConnectionAutoConfiguration {
         return template;
     }
 
+    /**
+     * String redis template string redis template.
+     *
+     * @param redisConnectionFactory the redis connection factory
+     * @return the string redis template
+     */
     @Bean
     @ConditionalOnMissingBean
     @Qualifier("stringRedisTemplate")
@@ -140,6 +169,11 @@ public class RedisConnectionAutoConfiguration {
         return template;
     }
 
+    /**
+     * Redis client redis client.
+     *
+     * @return the redis client
+     */
     @Bean
     @ConditionalOnMissingBean
     @Qualifier("redisClient")

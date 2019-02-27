@@ -17,6 +17,10 @@ import java.util.concurrent.TimeUnit;
 
 import static io.github.redis.helper.Constants.*;
 
+/**
+ * The type Redis client. redis interaction with the use of {@link RedisTemplate<String, Object>}
+ * and {@link StringRedisTemplate} with help of {@link HashOperations<String, Object, Object>} for hash operations.
+ */
 @Component
 public class RedisClient {
 
@@ -28,6 +32,12 @@ public class RedisClient {
 
     private HashOperations<String, Object, Object> hashOperations;
 
+    /**
+     * Instantiates a new Redis client. All Args Constructor.
+     *
+     * @param redisTemplate       the redis template
+     * @param stringRedisTemplate the string redis template
+     */
     public RedisClient(RedisTemplate<String, Object> redisTemplate,
                        StringRedisTemplate stringRedisTemplate) {
         this.redisTemplate = redisTemplate;
@@ -35,6 +45,13 @@ public class RedisClient {
         this.hashOperations = redisTemplate.opsForHash();
     }
 
+    /**
+     * Sets element in redis.
+     *
+     * @param <T>     the type parameter
+     * @param key     the key
+     * @param element the element
+     */
     @HystrixCommand(
             commandKey = REDIS_SET_COMMAND,
             groupKey = REDIS_SET_COMMAND,
@@ -50,6 +67,14 @@ public class RedisClient {
         }
     }
 
+    /**
+     * Sets element in redis with expiry.
+     *
+     * @param <T>             the type parameter
+     * @param key             the key
+     * @param element         the element
+     * @param expiryInSeconds the expiry in seconds
+     */
     public <T> void setElementInRedisWithExpiry(String key, T element, int expiryInSeconds) {
         LOGGER.info("Set Called for Key:{}, expiry(second):{}", key, expiryInSeconds);
         if (element instanceof String) {
@@ -63,6 +88,14 @@ public class RedisClient {
         LOGGER.error("Redis SET Failed for key:{}, element:{}", key, element);
     }
 
+    /**
+     * Gets element from redis.
+     *
+     * @param <T>    the type parameter
+     * @param key    the key
+     * @param tClass the t class (this is return type of the element in redis against the key)
+     * @return the element from redis
+     */
     @HystrixCommand(commandKey = REDIS_GET_COMMAND,
             groupKey = REDIS_GET_COMMAND,
             threadPoolKey = REDIS_GET_COMMAND,
@@ -91,6 +124,11 @@ public class RedisClient {
         return null;
     }
 
+    /**
+     * Delete element from redis.
+     *
+     * @param key the key
+     */
     @HystrixCommand(
             commandKey = REDIS_DELETE_COMMAND,
             groupKey = REDIS_DELETE_COMMAND,
@@ -105,6 +143,14 @@ public class RedisClient {
         LOGGER.error("Redis Delete Failed for key:{}", key);
     }
 
+    /**
+     * Put in redis using hash ops.
+     *
+     * @param <T>       the type parameter
+     * @param key       the key
+     * @param hashKey   the hash key
+     * @param hashValue the hash value
+     */
     @HystrixCommand(
             commandKey = REDIS_PUT_IN_DB,
             groupKey = REDIS_PUT_IN_DB,
@@ -121,6 +167,15 @@ public class RedisClient {
         LOGGER.error("Redis Put Using HashOps Failed for key:{}, hashKey:{}, hashValue:{}", key, hashKey, hashValue);
     }
 
+    /**
+     * Gets from redis using hash ops.
+     *
+     * @param <T>     the type parameter
+     * @param key     the key
+     * @param hashKey the hash key
+     * @param tClass  the t class (this is return type of the element in redis against the key)
+     * @return the from redis using hash ops
+     */
     @HystrixCommand(
             commandKey = REDIS_GET_FROM_DB,
             groupKey = REDIS_GET_FROM_DB,
@@ -139,6 +194,12 @@ public class RedisClient {
         return null;
     }
 
+    /**
+     * Gets keys from pattern.
+     *
+     * @param pattern the pattern
+     * @return the keys from pattern
+     */
     @HystrixCommand(
             commandKey = REDIS_GET_FROM_DB,
             groupKey = REDIS_GET_FROM_DB,
