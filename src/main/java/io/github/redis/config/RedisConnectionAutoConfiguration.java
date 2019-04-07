@@ -32,7 +32,7 @@ import redis.clients.jedis.JedisPoolConfig;
  * This auto configuration works with {@link RedisProperties} which is included as a part of this artifact.
  */
 @Configuration
-@ConditionalOnClass({ JedisConnection.class, RedisOperations.class, Jedis.class })
+@ConditionalOnClass({JedisConnection.class, RedisOperations.class, Jedis.class})
 @EnableConfigurationProperties(RedisProperties.class)
 public class RedisConnectionAutoConfiguration {
 
@@ -50,8 +50,8 @@ public class RedisConnectionAutoConfiguration {
      * @param clusterEnabled  the cluster enabled
      */
     public RedisConnectionAutoConfiguration(@Autowired RedisProperties redisProperties,
-                                            @Value("${spring.redis.sentinel.enabled}") boolean sentinelEnabled,
-                                            @Value("${spring.redis.cluster.enabled}") boolean clusterEnabled) {
+                                            @Value("${spring.redis.sentinel.enabled:false}") boolean sentinelEnabled,
+                                            @Value("${spring.redis.cluster.enabled:false}") boolean clusterEnabled) {
         this.redisProperties = redisProperties;
         this.sentinelEnabled = sentinelEnabled;
         this.clusterEnabled = clusterEnabled;

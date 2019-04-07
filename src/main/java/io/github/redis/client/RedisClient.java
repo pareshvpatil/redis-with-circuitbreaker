@@ -18,8 +18,9 @@ import java.util.concurrent.TimeUnit;
 import static io.github.redis.helper.Constants.*;
 
 /**
- * The type Redis client. redis interaction with the use of {@link RedisTemplate<String, Object>}
- * and {@link StringRedisTemplate} with help of {@link HashOperations<String, Object, Object>} for hash operations.
+ * Redis client Bean. redis interaction with the use of {@link RedisTemplate}
+ * and {@link StringRedisTemplate} with help of {@link HashOperations} for hash operations.
+ * Wrapped with {@link HystrixCommand} for each redis operation.
  */
 @Component
 public class RedisClient {
