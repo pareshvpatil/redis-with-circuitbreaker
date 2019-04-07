@@ -19,7 +19,7 @@ Ready to use methods like get, get from hash operations, put, put with expiry, p
     <version>{redis-client-version}</version>
 </dependency>
 ```
-- Find out the latest version of the artifact in [Central Repository](https://mvnrepository.com/repos/central)
+- Find out the latest version of the artifact in [Central Repository](https://mvnrepository.com/artifact/io.github.pareshvpatil/redis-with-circuitbreaker)
 - To use this artifact, standard spring boot redis configuration properties are used. Please find the sample here.
     - These configurations are for redis-single-instance
     ```
