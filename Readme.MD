@@ -14,7 +14,7 @@ Ready to use methods like get, get from hash operations, put, put with expiry, p
 - To use this artifact in your spring boot application, add the following dependency snippet in your **pom.xml**.
 ```
 <dependency>
-    <groupId>io.github.redis</groupId>
+    <groupId>io.github.pareshvpatil</groupId>
     <artifactId>redis-with-circuitbreaker</artifactId>
     <version>{redis-client-version}</version>
 </dependency>
